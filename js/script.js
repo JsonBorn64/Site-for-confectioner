@@ -72,11 +72,11 @@ let smoother = ScrollSmoother.create({
     }
 });
 
-// if (window.innerWidth > 768) {
+if (window.innerWidth > 768) {
     smoother.effects(".main_screen_right_decore", {
         lag: (i) => i * 0.04,
     })
-// }
+}
 
 smoother.effects(".about_us_img_wrapper > img", {
     speed: (i) => {
@@ -151,7 +151,7 @@ links.forEach(link => {
 // );
 
 // Mobile browsers top placeholder fix
-window.addEventListener('resize', () => {
-    document.body.style.height = window.innerHeight + 'px'
-})
-document.body.style.height = window.innerHeight + 'px'
+// window.addEventListener('resize', () => {
+//     document.body.style.height = window.innerHeight + 'px'
+// })
+// document.body.style.height = window.innerHeight + 'px'
