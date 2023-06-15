@@ -67,16 +67,16 @@ let smoother = ScrollSmoother.create({
         rotateSetter(clamp(self.getVelocity() / -50))
     },
     onStop: () => {
-        skewSetter(0)
+        if (window.innerWidth > 768) skewSetter(0)
         rotateSetter(0)
     }
 });
 
-if (window.innerWidth > 768) {
+// if (window.innerWidth > 768) {
     smoother.effects(".main_screen_right_decore", {
         lag: (i) => i * 0.04,
     })
-}
+// }
 
 smoother.effects(".about_us_img_wrapper > img", {
     speed: (i) => {
