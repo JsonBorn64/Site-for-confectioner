@@ -49,7 +49,7 @@ const callback = (entries, observer) => {
 const observer = new IntersectionObserver(callback, options);
 observer.observe(assortmentList);
 
-////////////////////////////////////////////////////////////////  
+////////////////////////////////////////////////////////////////
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
