@@ -72,9 +72,11 @@ let smoother = ScrollSmoother.create({
     }
 });
 
-smoother.effects(".main_screen_right_decore", {
-    lag: (i) => i * 0.04,
-})
+if (window.innerWidth > 768) {
+    smoother.effects(".main_screen_right_decore", {
+        lag: (i) => i * 0.04,
+    })
+}
 
 smoother.effects(".about_us_img_wrapper > img", {
     speed: (i) => {
@@ -84,12 +86,19 @@ smoother.effects(".about_us_img_wrapper > img", {
     },
 })
 
-let mySplitText = new SplitText(".assortment_title", { type: "words,chars" });
+let mySplitText = new SplitText(".cakes_to_order_title", { type: "words,chars" });
 let chars = mySplitText.chars;
 
 chars.forEach((char, i) => {
-    smoother.effects(char, { speed: 1, lag: (i+1) * 0.02 });
-});
+    let lag;
+    if (i < chars.length / 2) {
+      lag = (i + 1) * 0.02;
+    } else {
+      lag = ((chars.length - i) + 1) * 0.02;
+    }
+    smoother.effects(char, { speed: 1, lag: lag });
+  });
+  
 
 gsap.to(".about_us_img", {
     scrollTrigger: {
@@ -127,16 +136,22 @@ links.forEach(link => {
     });
 });
 
-gsap.fromTo(".subscribe_form",
-    {
-        scale: 0
-    },
-    {
-        scrollTrigger: {
-            trigger: ".subscribe_form",
-            start: "-=300px center"
-        },
-        scale: 1,
-        ease: "elastic",
-    }
-);
+// gsap.fromTo(".subscribe_form",
+//     {
+//         scale: 0
+//     },
+//     {
+//         scrollTrigger: {
+//             trigger: ".subscribe_form",
+//             start: "-=300px center"
+//         },
+//         scale: 1,
+//         ease: "elastic",
+//     }
+// );
+
+// Mobile browsers top placeholder fix
+window.addEventListener('resize', () => {
+    document.body.style.height = window.innerHeight + 'px'
+})
+document.body.style.height = window.innerHeight + 'px'

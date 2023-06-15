@@ -425,6 +425,9 @@ body {
         user-select: none;
         cursor: pointer;
         margin-bottom: -430px;
+        @media (max-width: 1000px) {
+            margin-bottom: -540px;
+        }
         .assortment_item {
             position: absolute;
             display: flex;
@@ -484,13 +487,13 @@ body {
     }
     @keyframes assortment_decore_skew {
         0% {
-            transform: rotate(0deg) skewX(-5deg) skewY(-5deg);
+            transform: rotate(0deg) skewX(-5deg) skewY(-5deg) scaleY(0.6);
         }
         50% {
-            transform: rotate(1deg) skewX(5deg) skewY(0deg);
+            transform: rotate(1deg) skewX(5deg) skewY(0deg) scaleY(0.6);
         }
         100% {
-            transform: rotate(0deg) skewX(-5deg) skewY(-5deg);
+            transform: rotate(0deg) skewX(-5deg) skewY(-5deg) scaleY(0.6);
         }
     }
     .cake_line {
@@ -550,6 +553,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
+        box-shadow: 0 0 0 14px white;
         .cakes_to_order_list_item {
             display: flex;
             flex-direction: column;
