@@ -63,11 +63,11 @@ let smoother = ScrollSmoother.create({
     effects: true,
     smoothTouch: 0.1,
     onUpdate: (self) => {
-        skewSetter(clamp(self.getVelocity() / -50))
+        if (window.innerWidth > 768) skewSetter(clamp(self.getVelocity() / -50))
         rotateSetter(clamp(self.getVelocity() / -50))
     },
     onStop: () => {
-        if (window.innerWidth > 768) skewSetter(0)
+        skewSetter(0)
         rotateSetter(0)
     }
 });
